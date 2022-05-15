@@ -1,0 +1,11 @@
+
+.main {
+    margin-top: 20px;
+}
+
+.blocks {
+    display: grid;
+    /*justify-content: space-between;*/
+    gap: 50px;
+    grid-template-columns: 400px 400px 400px;
+}

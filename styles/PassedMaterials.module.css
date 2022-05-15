@@ -1,0 +1,22 @@
+.headText {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+    margin-left: 20px;
+}
+
+.main {
+    padding: 30px 40px 0 40px;
+}
+
+.text2 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 29px;
+}
+
+.blockTexts {
+    padding-bottom: 10px;
+}

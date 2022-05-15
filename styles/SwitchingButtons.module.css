@@ -1,0 +1,20 @@
+
+
+.circle1 {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    background-color: rgba(104, 103, 112, 0.05);
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.circle2 {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    background-color: rgba(104, 103, 112, 0.05);
+    display: inline-block;
+}

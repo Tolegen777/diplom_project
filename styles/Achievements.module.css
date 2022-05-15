@@ -1,0 +1,62 @@
+.main {
+    padding: 20px;
+}
+
+.headText {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+    margin-left: 10px;
+
+}
+
+.library {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 29px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.imgBlock {
+    width: 100px;
+    height: 100px;
+    background: #C4C4C4;
+    opacity: 0.6;
+}
+
+.textDiv {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.btn1 {
+    width: 132px;
+    height: 45px;
+    background: #C4C4C4;
+    border-radius: 5px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    margin-right: 10px;
+}
+
+.btn2 {
+    width: 132px;
+    height: 45px;
+    background: #C4C4C4;
+    border-radius: 5px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+}

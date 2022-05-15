@@ -1,0 +1,80 @@
+.main {
+    /*justify-content: center;*/
+    /*display: flex;*/
+    padding: 5% 20%;
+
+
+
+
+}
+
+.secondText span{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 32px;
+
+
+}
+
+.block {
+    width: 837px;
+    height: 290px;
+    background: #007ECC;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.circle {
+    background-color: #FFFFFF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+
+}
+
+.choose{
+    margin: 30px auto 5px 20%;
+}
+
+
+
+.select select {
+    width: 558px;
+    height: 54px;
+    background-color: #FFFFFF;
+    color: black;
+}
+
+.select select option::before{
+    width: 558px;
+    height: 54px;
+    background-color: #FFFFFF;
+    color: red;
+}
+
+.btn {
+    width: 224px;
+    height: 61px;
+    background: #007ECC;
+    border-radius: 10px;
+    float: right;
+    margin-top: 30px;
+    cursor:pointer;
+}
+
+
+
+
+
+
+

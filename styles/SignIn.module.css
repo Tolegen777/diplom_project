@@ -1,0 +1,47 @@
+.secondText span{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 32px;
+
+}
+
+.secondText {
+    text-align: center;
+}
+
+
+
+.hr1 {
+
+}
+.hr2 {
+    width:40%;
+    color:red;
+    float: right;
+}
+
+.btn1{
+    width: 100px;
+    height: 40px;
+    background: #686770;
+    border: 1px solid #000000;
+    display: inline-block;
+    cursor: pointer;
+
+
+
+}
+
+.btn2{
+    width: 100px;
+    height: 40px;
+    background: rgba(104, 103, 112, 0.05);
+    border: 1px solid #000000;
+    margin-left: 20px;
+    display: inline-block;
+    cursor: pointer;
+
+
+}

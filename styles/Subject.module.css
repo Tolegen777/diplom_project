@@ -1,0 +1,66 @@
+
+
+.first {
+ display: flex;
+    align-items: flex-end;
+    /*justify-content: space-between;*/
+}
+
+.first_text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 47px;
+    margin-bottom: 20px;
+}
+
+.main{
+ padding: 20px 30px 10px 70px;
+}
+
+.icon {
+    background-color: #ffffff;
+    border-radius: 20px;
+    width: 75px;
+    height: 85px;
+    border: 1px solid #000000;
+    margin-left: 10px;
+}
+
+.scndBlock {
+    margin-left: 100px;
+}
+
+.first_second {
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+}
+
+.profileBtns {
+  border: 1px solid #000000;
+    height: 50px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    color: #000000;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.uIcon {
+    width: 48px;
+    height: 50px;
+    border-radius: 10px;
+    background: #C4C4C4;
+    border: 1px solid #000000;
+}
+
+.profileBlock {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+
+
+}

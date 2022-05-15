@@ -1,0 +1,32 @@
+.main {
+    padding: 20px;
+}
+
+.headText {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+    margin-left: 10px;
+
+}
+
+.accSettings {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 29px;
+    margin-bottom: 20px;
+}
+
+.text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.input{
+    background: #C4C4C4;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,55 @@
+
+
+.main {
+    padding: 30px 10px 10px 30px;
+}
+
+.accountText {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 47px;
+    margin-left: 20px;
+
+}
+
+.dataText {
+    width: 189px;
+    height: 27px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 27px;
+    margin-bottom: 10px;
+}
+
+.imgBlock {
+    width: 265px;
+    height: 225px;
+    background: #C4C4C4;
+}
+
+
+
+
+.infoBlock {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 27px;
+    color: #000000;
+}
+
+.block2 {
+    width: 664px;
+    height: 363px;
+    background-color: #C4C4C4;;
+
+}
+
+.infoBlock2 {
+   margin:0 auto 30px 40px;
+}
