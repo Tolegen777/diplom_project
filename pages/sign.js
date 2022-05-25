@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import style from "./../styles/Sign.module.css";
 import SwitchingButtons from "./../components/switchingButtons";
 import SignIn from "./../components/signIn";
@@ -9,7 +9,17 @@ const Sign = () => {
 
     const [isSwitchMode, setSwitchMode] = useState(false)
 
+    const isSignUp = useSelector(state=>state.auth.isSignUp)
 
+    const isLoading2 = useSelector(state=>state.auth.isLoading2)
+
+
+    useEffect(()=>{
+        if (isSignUp) {
+            setSwitchMode(true)
+        }
+
+    }, [isSignUp])
 
     return (
         <div className={style.main}>

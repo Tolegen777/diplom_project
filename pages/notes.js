@@ -2,6 +2,7 @@ import React from 'react';
 import style from "./../styles/Notes.module.css";
 import Header from "./../components/header";
 import MyButton from "./../components/button";
+import {TextField} from "@mui/material";
 
 
 const subj = ["История","Математика","Англиский","Информатика","География","Биолгоия","Химия","Физика"]
@@ -32,8 +33,11 @@ const Notes = () => {
                     <img src="/book.svg" />
                 </div>
                 <div>
-                    Здесь будут видны ваши заметки. Пока что у вас их нет
+                    Your notes will be visible here. So far you do not have them.
                 </div>
+
+                <TextField placeholder={"Enter your note"}/>
+                <button>Save</button>
 
             </div>
         </div>

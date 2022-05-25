@@ -42,12 +42,12 @@ const Achievements = () => {
                 <div style={{display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:"20px"}}>
                     <div style={{display:"flex", alignItems:"center"}}>
                         <MyButton text = "Назад" href = "/subject"/>
-                        <div className={style.headText}>Достижения</div>
+                        <div className={style.headText}>Achievements</div>
                     </div>
                 </div>
 
                 <div>
-                    <div className={style.library}>Моя библиотека наград</div>
+                    <div className={style.library}>My Rewards Library</div>
                     <div style={{padding:"10px"}}>
                         {row.map(i=>
                             <div style={{borderBottom:"1px solid #000000"}}>
@@ -78,8 +78,8 @@ const Block = ({img, name, desc}) => {
                </div>
            </div>
            <div>
-               <button className={style.btn1}>Скачать</button>
-               <button className={style.btn2}>Читать</button>
+               <button className={style.btn1}>Download</button>
+               <button className={style.btn2}>Read</button>
            </div>
         </div>
     )

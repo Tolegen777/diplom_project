@@ -40,10 +40,10 @@ const PassedMaterials = () => {
                 <div style={{display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:"20px"}}>
                     <div style={{display:"flex", alignItems:"center"}}>
                         <MyButton text = "Назад" href = "/subject"/>
-                        <div className={style.headText}>Мои пройденные материалы</div>
+                        <div className={style.headText}>My completed materials</div>
                     </div>
                     <div className={style.text2}>
-                        Сгенерировать текст {">"}
+                        Generate text {">"}
                     </div>
 
                 </div>

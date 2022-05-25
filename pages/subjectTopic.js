@@ -25,15 +25,16 @@ const arr = [
     },
 ]
 
-const SubjectTopic = () => {
+
+const SubjectTopic = (props) => {
     return (
         <div className={style.main}>
             <div>Продолжить...</div>
             <div className={style.blocks}>
-                {
-                    arr.map(i => <div key={i.id}>
-                        <TopicBlocks text={i.text}/>
-                    </div>)
+                { props.category.length>0?
+                    props.category.map(i => <div key={i.id}>
+                        <TopicBlocks text={i.name}/>
+                    </div>):<div>В этом курсе категорий отсутствуют!</div>
                 }
             </div>
 

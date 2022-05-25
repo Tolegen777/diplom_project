@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import style from "./../styles/SelectedTopic.module.css";
 import LabelIcon from '@mui/icons-material/Label';
 import Link from "next/link";
+import {TextField} from "@mui/material";
 
 
 const SelectedTopic = () => {
@@ -15,7 +16,7 @@ const SelectedTopic = () => {
             setMode(true)
         }
     }
-    console.log(mode)
+    //console.log(mode)
 
     return (
        <div>
@@ -32,10 +33,10 @@ const ClosedNote = (props) => {
 
                     <div>
                         <Link href={"/subject"}>
-                            <button className={style.btn}>{"<"} Все темы</button>
+                            <button className={style.btn}>{"<"} All topics</button>
                         </Link>
                     </div>
-                    <div className={style.first_text}>Тема: Шелковый путь</div>
+                    <div className={style.first_text}>Theme: Silk Road</div>
                 </div>
 
                 <div><LabelIcon sx={{
@@ -49,7 +50,7 @@ const ClosedNote = (props) => {
                 }} onClick={props.handleSetMode}/></div>
             </div>
             <div className={style.content}>
-                <div style={{textAlign: "center", fontWeight:800}}>Щелковый путь</div>
+                <div style={{textAlign: "center", fontWeight:800}}>Silk Road</div>
                 <div>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Aliquid at cupiditate dolores eaque eius enim ex explicabo, iure
@@ -79,7 +80,7 @@ const ClosedNote = (props) => {
                 </div>
                 <div style={{alignSelf:"flex-end", marginTop:"30%"}}>
                     <Link href={"/task"}>
-                        <button className={style.btn}>Начать игру {">"} </button>
+                        <button className={style.btn}>Start the game {">"} </button>
                     </Link>
                 </div>
 
@@ -95,10 +96,10 @@ const OpenedNote = (props) => {
                 <div style={{display: "flex", alignItems: "center"}}>
                     <div>
                         <Link href={"/subject"}>
-                            <button className={style.btn}>{"<"} Все темы</button>
+                            <button className={style.btn}>{"<"} All topics</button>
                         </Link>
                     </div>
-                    <div className={style.first_text}>Тема: Шелковый путь</div>
+                    <div className={style.first_text}>Theme: Silk Road</div>
                 </div>
 
                 {/*<div><LabelIcon sx={{*/}
@@ -114,7 +115,7 @@ const OpenedNote = (props) => {
 
 
                 <div className={style.content2}>
-                    <div style={{textAlign: "center", fontWeight:800}}>Щелковый путь</div>
+                    <div style={{textAlign: "center", fontWeight:800}}>Silk Road</div>
                     <div>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Aliquid at cupiditate dolores eaque eius enim ex explicabo, iure
@@ -162,6 +163,8 @@ const OpenedNote = (props) => {
                     }} onClick={props.handleSetMode}/></div>
                     <div style={{textAlign:"center", marginBottom:"10px"}}>Заметки</div>
                     <div style={{marginLeft:"10px"}}>Здесь вы сможете расписывать заметки</div>
+                    <TextField placeholder={"Enter your note..."}/>
+                    <button>Save</button>
                 </div>
 
             </div>
