@@ -2,6 +2,7 @@ import React from 'react';
 import style from "./../styles/Achievements.module.css";
 import Header from "./../components/header";
 import MyButton from "./../components/button";
+import {useSelector} from "react-redux";
 
 
 const row = [
@@ -34,6 +35,14 @@ const row = [
 ]
 
 const Achievements = () => {
+
+
+    const isAuth = useSelector(state=>state.auth.isAuth)
+
+    if (!isAuth){
+        router.push("sign")
+    }
+
     return (
         <div>
             <Header/>
@@ -41,7 +50,7 @@ const Achievements = () => {
 
                 <div style={{display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:"20px"}}>
                     <div style={{display:"flex", alignItems:"center"}}>
-                        <MyButton text = "Назад" href = "/subject"/>
+                        <MyButton text = "Back" href = "/subject"/>
                         <div className={style.headText}>Achievements</div>
                     </div>
                 </div>
@@ -50,7 +59,7 @@ const Achievements = () => {
                     <div className={style.library}>My Rewards Library</div>
                     <div style={{padding:"10px"}}>
                         {row.map(i=>
-                            <div style={{borderBottom:"1px solid #000000"}}>
+                            <div style={{borderBottom:"1px solid #000000"}} key={i.id}>
                                 <Block name = {i.name} desc={i.desc}/>
                             </div>
                         )}

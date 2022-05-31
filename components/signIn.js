@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './../styles/SignIn.module.css'
 import {Box, CircularProgress, TextField, Typography} from "@mui/material";
-import {setHandleAuth} from "../redux/store/reducers/auth/auth.slice";
+import {setHandleAuth, setWithoutAuth} from "../redux/store/reducers/auth/auth.slice";
 import {useDispatch, useSelector} from "react-redux";
 import * as yup from "yup";
 import {useFormik} from "formik";
@@ -48,7 +48,7 @@ const SignUp = () => {
     return (
         <>
             {isLoading&&<CircularProgress/>}
-            {error&&<div>Произошла ошибка</div>}
+            {error&&<div style={{color:"red", textAlign:"center"}}>Произошла ошибка</div>}
 
             <div className={style.secondText}>
                 <span>lets get started!</span>
@@ -152,7 +152,7 @@ const SignUp = () => {
 
                 <div style={{display:"flex", justifyContent:"center", alignItems:"center", marginTop:"10px"}}>
                     <button className={style.btn1} type={"submit"}>Sign in</button>
-                    {/*<button className={style.btn2} onClick={()=>dispatch(setHandleAuth())}>Enter without registration</button>*/}
+                    <button className={style.btn2} onClick={()=>dispatch(setWithoutAuth())}>Enter without registration</button>
                 </div>
 
             </form>

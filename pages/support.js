@@ -53,7 +53,7 @@ const Support = () => {
                     marginBottom: "20px",
                     width: "50%"
                 }}>
-                    <MyButton text="Назад" href="/subject"/>
+                    <MyButton text="Back" href="/subject"/>
                     <div style={{alignItems: "center"}}>
                         <div className={style.headText}>Hello {`${last_name} ${first_name} ${middle_name}` }</div>
                         <div className={style.mainText}>How can we help you?</div>
@@ -63,7 +63,7 @@ const Support = () => {
                 <div>
                     <div className={style.mainText}>About us</div>
                     <div style={{display: "flex"}}>
-                        <div className={style.imgBlock}></div>
+                        <div className={style.imgBlock}><img src="/img.jpg" style={{width:"100%", height:"283px"}} alt=""/></div>
                         <div className={style.desc}>BeGreat is an interactive platform that will help you understand
                             topics ranging from mathematics to the language of the school curriculum. Our mission is to
                             provide fascinating content for the assimilation of the material. We have tried to create

@@ -2,7 +2,7 @@ import React from 'react';
 import style from './../styles/SignUp.module.css'
 import {Box, Button, CircularProgress, TextField, Typography} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import {setHandleAuth} from "../redux/store/reducers/auth/auth.slice";
+import {setHandleAuth, setWithoutAuth} from "../redux/store/reducers/auth/auth.slice";
 import * as yup from 'yup';
 import formik, {useFormik} from "formik";
 import {signUp} from "../redux/store/reducers/auth/auth.action";
@@ -49,7 +49,6 @@ const SignUp = () => {
             validationSchema: validationSchema,
             onSubmit: (values) => {
                 dispatch(signUp(values))
-                alert(JSON.stringify(values, null, 2));
             },
         });
 
@@ -60,7 +59,7 @@ const SignUp = () => {
     return (
         <>
             {isLoading2&&<CircularProgress/>}
-            {error2&&<div>Произошла ошибка</div>}
+            {error2&&<div style={{color:"red", textAlign:"center"}}>Произошла ошибка</div>}
 
             <div className={style.secondText}>
                 <span>Join our community and be great!</span>
@@ -217,14 +216,10 @@ const SignUp = () => {
 
                 <div style={{display:"flex", justifyContent:"center", alignItems:"center", marginTop:"10px"}}>
                     <button className={style.btn1} type={"submit"}>Create an account</button>
-                    {/*<button className={style.btn2} onClick={()=>dispatch(setHandleAuth())}>Enter without registration</button>*/}
+                    <button className={style.btn2} onClick={()=>dispatch(setWithoutAuth())}>Enter without registration</button>
                 </div>
 
             </form>
-
-
-
-
         </>
     );
 

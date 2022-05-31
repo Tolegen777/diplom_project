@@ -1,0 +1,29 @@
+
+.main {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 50px;
+    position: relative;
+    text-align: center;
+}
+
+.child1 {
+    height: 100px;
+    width: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    top: 0;
+    left: 0;
+    filter: brightness(0.5);
+}
+
+.child2 {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 100px;
+    left: 20px;
+}
+

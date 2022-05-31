@@ -41,38 +41,48 @@ const CategorySubject = () => {
         },
     });
 
+    const goWithoutAuth = useSelector(state=>state.auth.goWithoutAuth)
+    const isAuth = useSelector(state=>state.auth.isAuth)
+    if (!isAuth){
+        if (!goWithoutAuth){
+            router.push("sign")
+        }
+    }
+
 
     return (
-        <div className={style.main}>
-            <div style={{textAlign: "center"}}>
-                <div className={style.secondText}>
-                    <span>Welcome to BeGreat! Let{"'"}s get started!</span>
-                </div>
-                <div className={style.block}>
-                    {elems.map(e => <div key={e} className={style.circle}></div>)}
-                </div>
-            </div>
-
-            <form onSubmit={formik.handleSubmit}>
-                <div className={style.choose}>
-
-                    <div style={{marginBottom: "10px"}}>Choose a subject:</div>
-
-                    <div className={style.select}>
-                        <select name="course" style={{cursor: "pointer"}}
-                                value={formik.values.course ? formik.values.course : ''} onChange={formik.handleChange}>
-                            {courses && courses?.result.map(oneCourse => <option key={oneCourse.id} value={oneCourse.id}
-                                                                                 style={{fontSize: "50px"}}
-                                                                                 onChange={formik.handleChange}>{oneCourse.name}</option>)}
-                        </select>
+        <><div className={style.main}>
+                <div style={{textAlign: "center"}}>
+                    <div className={style.secondText}>
+                        <span>Welcome to BeGreat! Let{"'"}s get started!</span>
+                    </div>
+                    <div className={style.block}>
+                        {elems.map(e => <div key={e} className={style.circle}></div>)}
                     </div>
                 </div>
-                <div>
-                    <button type={"submit"} className={style.btn}>Continue</button>
-                </div>
-            </form>
 
-        </div>
+                <form onSubmit={formik.handleSubmit}>
+                    <div className={style.choose}>
+
+                        <div style={{marginBottom: "10px"}}>Choose a subject:</div>
+
+                        <div className={style.select}>
+                            <select name="course" style={{cursor: "pointer"}}
+                                    value={formik.values.course ? formik.values.course : ''} onChange={formik.handleChange}>
+                                {courses && courses?.result.map(oneCourse => <option key={oneCourse.id} value={oneCourse.id}
+                                                                                     style={{fontSize: "50px"}}
+                                                                                     onChange={formik.handleChange}>{oneCourse.name}</option>)}
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <button type={"submit"} className={style.btn}>Continue</button>
+                    </div>
+                </form>
+
+            </div>
+        </>
+
     );
 };
 

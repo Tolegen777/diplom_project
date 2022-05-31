@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    courseId:null
+    courseId:null,
+    categoryId:null
 };
 
 const courseReducer = createSlice({
@@ -11,12 +12,16 @@ const courseReducer = createSlice({
         setCourseId: (state,{payload}) => {
             state.courseId = payload
         },
+        setCategoryId: (state,{payload}) => {
+            state.categoryId = payload
+        },
+
     },
     initialState,
     extraReducers: (builder) => {
     },
 });
 
-export const {setCourseId} = courseReducer.actions
+export const {setCourseId, setCategoryId} = courseReducer.actions
 
 export default courseReducer.reducer;

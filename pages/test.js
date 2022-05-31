@@ -1,17 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import style from "./../styles/Task.module.css";
-import LabelIcon from "@mui/icons-material/Label";
 import {CircularProgress, Pagination} from "@mui/material";
-import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import MyButton from "./../components/button";
 import {useGetQuestionsQuery} from "../redux/rtk-api/questions/questions";
-import {useSelector} from "react-redux";
 import {useSubmitAnswerMutation} from "../redux/rtk-api/submitAnswer/submitAnswer";
 import CustomAlert from "../components/customAlert";
+import {
+    useGenerateMutation,
+    useGetGenerateQuestionsQuery,
+    useSubmitTestAnswerMutation
+} from "../redux/rtk-api/generate_test/questions";
 
-const answers = ["в 5 веке", "в 5 веке", "в 5 веке", "в 5 веке"]
 
-const Task = () => {
+const Test = () => {
 
     const [categoryId, setCategoryId] = useState(2)
     const [page, setPage] = useState()
@@ -23,17 +24,18 @@ const Task = () => {
     const [answer,setAnswer] = useState('')
 
 
-    const {data, isLoading} = useGetQuestionsQuery({categoryId, page})
+    const {data, isLoading} = useGetGenerateQuestionsQuery(page)
+    console.log(data)
     // console.log(data)
     // console.log("ques")
     // console.log(data)
     // console.log("vf")
 
-    const [submitAnswer, {isSuccess}] = useSubmitAnswerMutation()
+    const [submitAnswer, {isSuccess}] = useSubmitTestAnswerMutation()
 
     const handleChange = (event, value) => {
         setPage(value);
-        setPage2(value)
+        setPage2(value);
         setAnswer('')
     };
 
@@ -51,15 +53,14 @@ const Task = () => {
                 setAnswer("error")
             }
         })
+
         // console.log(data2)
-        console.log("data2")
+
 
         // submitAnswer(data2)
 
     }
-    // useEffect(()=>{
-    //     console.log(isSuccess)
-    // },[isSuccess])
+
 
     const handleChose = (value, ind, id) => {
         setOption(ind)
@@ -77,7 +78,7 @@ const Task = () => {
                 <div style={{display: "flex", alignItems: "center"}}>
 
                     <div>
-                        <MyButton text="Back" href="/selectedTopic"/>
+                        <MyButton text="Back" href="/passedMaterials"/>
                     </div>
                     <div className={style.first_text}>Тема: Шелковый путь</div>
                 </div>
@@ -85,14 +86,7 @@ const Task = () => {
                 <div style={{display: "flex", alignItems: "center"}}>
                     <div>Вопросы:</div>
                     <Pagination count={data ? data?.result?.count : 0} onChange={handleChange}/>
-                    {/*<QuestionMarkIcon*/}
-                    {/*    sx={{*/}
-                    {/*        backgroundColor: "#C4C4C4",*/}
-                    {/*        border: "1px solid #000000",*/}
-                    {/*        borderRadius: "5px",*/}
-                    {/*        width: "50px",*/}
-                    {/*        height: "30px"*/}
-                    {/*    }}/>*/}
+
                 </div>
             </div>
             <div style={{marginTop: "40px", height: "60vh"}}>
@@ -144,4 +138,4 @@ const Task = () => {
     );
 };
 
-export default Task;
+export default Test;

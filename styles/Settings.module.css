@@ -28,5 +28,29 @@
 
 .input{
     background: #C4C4C4;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
+    width: 300px;
+    /*margin-top: 5px;*/
+    /*display: block;*/
+}
+
+.btn1{
+    width: 141px;
+    height: 41px;
+    background: #0075FF;
+    border-radius: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.btn2{
+    width: 141px;
+    height: 41px;
+    background: #C4C4C4;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.title {
+    height: 2px;
 }

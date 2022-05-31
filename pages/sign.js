@@ -28,9 +28,9 @@ const Sign = () => {
                     <SwitchingButtons/>
                 </div>
                 <div className={style.mainText}>
-                    <span onClick={()=>setSwitchMode(false)} className={!isSwitchMode?style.active:""}>Sign up</span>
+                    <span onClick={()=>setSwitchMode(false)} className={!isSwitchMode?style.active:""} style={{cursor:"pointer"}}>Sign up</span>
                     <span> | </span>
-                    <span onClick={()=>setSwitchMode(true)} className={isSwitchMode?style.active:""}>Sign In</span>
+                    <span onClick={()=>setSwitchMode(true)} className={isSwitchMode?style.active:"" } style={{cursor:"pointer"}}>Sign In</span>
                 </div>
                 {!isSwitchMode?<SignUp/>:<SignIn/>}
             </div>

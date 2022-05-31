@@ -46,9 +46,12 @@
 
 .answerBlock {
 
+    width: 100%;
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-column-gap: 10px;
+    grid-template-columns: 25% 25% 25%;
+    grid-column-gap: 20px;
+    align-items: center;
+    justify-content: center;
 
 }
 
@@ -60,6 +63,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 50px;
+    border: 1px solid #000000;
+    cursor: pointer;
 }
 
 .submitButton {
@@ -72,5 +78,6 @@
     font-weight: 400;
     font-size: 23px;
     line-height: 27px;
+    cursor: pointer;
 
 }

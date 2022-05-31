@@ -1,6 +1,9 @@
 import React from 'react';
 import style from "./../styles/SubjectTopic.module.css";
 import Link from "next/link";
+import {useJoinToCourseMutation} from "../redux/rtk-api/joinToCourse/joinToCourse";
+import {useSelector} from "react-redux";
+import {useRouter} from "next/router";
 
 const arr = [
     {
@@ -27,14 +30,24 @@ const arr = [
 
 
 const SubjectTopic = (props) => {
+
+    const isAuth = useSelector(state=>state.auth.isAuth)
+
+    const router = useRouter()
+
+    if (!isAuth){
+        router.push("sign")
+    }
+
+
     return (
         <div className={style.main}>
-            <div>Продолжить...</div>
+            <div>Continue...</div>
             <div className={style.blocks}>
                 { props.category.length>0?
                     props.category.map(i => <div key={i.id}>
                         <TopicBlocks text={i.name}/>
-                    </div>):<div>В этом курсе категорий отсутствуют!</div>
+                    </div>):<div>There are no categories in this course!</div>
                 }
             </div>
 
@@ -46,6 +59,18 @@ const SubjectTopic = (props) => {
 export default SubjectTopic;
 
 const TopicBlocks = (props) => {
+
+    const [joinToCourse,{}] = useJoinToCourseMutation()
+
+    const categoryId = useSelector(state=>state.course.categoryId)
+
+
+
+    const handleJoin = () => {
+
+        joinToCourse(categoryId)
+    }
+
     return (
         <div style={{
             width: '400px',
@@ -71,7 +96,7 @@ const TopicBlocks = (props) => {
                         display: "flex",
                         alignItems: "center",
                         cursor:"pointer"
-                    }}><img src="/next.svg" /></div>
+                    }} onClick={handleJoin}><img src="/next.svg" /></div>
                 </Link>
 
             </div>

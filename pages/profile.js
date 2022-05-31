@@ -4,6 +4,9 @@ import Header from "./../components/header";
 import MyButton from "./../components/button";
 import {TextField} from "@mui/material";
 import {useGetProfileQuery} from "../redux/rtk-api/profile/profile";
+import {useGetFinishedCoursesQuery} from "../redux/rtk-api/finishedCourses/finishedCourses";
+import {useSelector} from "react-redux";
+import {useRouter} from "next/router";
 
 
 
@@ -12,13 +15,22 @@ const Profile = () => {
 
     const {data} = useGetProfileQuery()
     // console.log(data)
+    const {data:finishData,isLoading,isError} = useGetFinishedCoursesQuery()
+
+    const isAuth = useSelector(state=>state.auth.isAuth)
+
+    const router = useRouter()
+
+    if (!isAuth){
+        router.push("sign")
+    }
 
     return (
         <div>
             <Header/>
             <div className={style.main}>
                 <div style={{display:"flex", alignItems:"center", justifyContent:"flex-start", marginBottom:"20px"}}>
-                    <MyButton text = "Назад"  href = "/subject"/>
+                    <MyButton text = "Back"  href = "/subject"/>
                     <div className={style.accountText}>Account</div>
                 </div>
 
@@ -26,22 +38,21 @@ const Profile = () => {
                     <div className={style.dataText}>Student Data</div>
                     <div style={{display:"flex"}}>
 
-                        <div className={style.imgBlock}><img src={data?data?.result.avatar:""} alt=""/></div>
                         <div>
                             <div className={style.infoBlock}>
-                                <div style={{marginRight:"5px"}}>Full name</div>
+                                <div style={{marginRight:"5px", width:"150px"}}>Full name</div>
                                 <TextField value={data?`${data?.result?.user?.first_name} ${data?.result?.user?.last_name} ${data?.result?.user?.middle_name}`:""}></TextField>
                             </div>
                             <div className={style.infoBlock}>
-                                <div style={{marginRight:"5px"}}>Phone number</div>
+                                <div style={{marginRight:"5px", width:"150px"}}>Phone number</div>
                                 <TextField value={data?data?.result?.user?.phone:""}></TextField>
                             </div>
                             <div className={style.infoBlock}>
-                                <div style={{marginRight:"5px"}}>Mail</div>
+                                <div style={{marginRight:"5px", width:"150px"}}>Mail</div>
                                 <TextField value = {data?data?.result?.user?.email:""}></TextField>
                             </div>
                             <div className={style.infoBlock}>
-                                <div style={{marginRight:"5px"}}>Region</div>
+                                <div style={{marginRight:"5px", width:"150px"}}>Region</div>
                                 <TextField value = {data?data?.result?.user?.region:""}></TextField>
                             </div>
 
@@ -52,24 +63,24 @@ const Profile = () => {
                 <hr style={{margin:"40px 0px"}}/>
 
                 <div>
-                    <div className={style.dataText}>Статистика</div>
+                    <div className={style.dataText}>Statistics</div>
                     <div style={{display:"flex"}}>
-                        <div className={style.block2}><img src="/atomIcon.svg" /></div>
+                        <div className={style.block2}><img src="/atom.svg" /></div>
                         <div>
                             <div className={style.infoBlock2}>
-                                <div style={{marginRight:"15px"}}>Initial assessment</div>
+                                <div style={{marginRight:"15px"}}>Name of course: {finishData&&finishData.result[0].category.course.name}</div>
                             </div>
                             <div className={style.infoBlock2}>
-                                <div style={{marginRight:"15px"}}>For the first month of May</div>
+                                <div style={{marginRight:"15px"}}>Finished theme: {finishData&&finishData.result[0].category.name}</div>
                             </div>
                             <div className={style.infoBlock2}>
-                                <div style={{marginRight:"15px"}}>Full report</div>
+                                <div style={{marginRight:"15px"}}>Class of finished theme: {finishData&&finishData.result[0].category.grade}</div>
                             </div>
                             <div className={style.infoBlock2}>
-                                <div style={{marginRight:"15px"}}>This is where the average score so far will be recorded.</div>
+                                <div style={{marginRight:"15px"}}>Class of finished theme: {finishData&&finishData.result[0].answered_correct}</div>
                             </div>
                             <div className={style.infoBlock2}>
-                                <div style={{marginRight:"15px"}}>48 topics/200 completed so far</div>
+                                <div style={{marginRight:"15px"}}>{finishData&&finishData.result[0].passed_lectures} completed so far</div>
                             </div>
 
                         </div>

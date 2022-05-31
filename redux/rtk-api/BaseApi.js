@@ -7,9 +7,10 @@ export const baseQuery = fetchBaseQuery({
         const token = localStorage.getItem('token');
         if (token) {
             headers.set('Authorization', `${token}`)
-        } else {
-            headers.set('Authorization', 'NO HEADER')
         }
+        // else {
+        //     headers.set('Authorization', 'NO HEADER')
+        // }
         return headers
     },
 });
