@@ -62,7 +62,7 @@ const Block = ({img, name, desc,prize}) => {
                </div>
            </div>
            <div>
-               <a href={prize} target={"_blank"} download={"file.txt"}><button className={style.btn2}>Download</button></a>
+               <a href={prize} target={"_blank"} rel="noreferrer" download={"file.txt"}><button className={style.btn2}>Download</button></a>
                <a href={prize} target={"_blank"} rel="noreferrer" ><button className={style.btn3} onClick={()=>setOpen(true)}>Read</button></a>
 
            </div>

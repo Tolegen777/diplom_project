@@ -19,13 +19,15 @@ const SubjectTopic = (props) => {
 
 
                 { props.category.length>0?
-                    props.category.map(i => {
+                    props.category.map((i,ind )=> {
                         if (props.searchedName && i.name.toLowerCase().includes(props.searchedName.toLowerCase())){
-                            return <div key={i.id} className={style.card}>
+                            return <div key={ind} className={style.card}>
                                 <TopicBlocks text={i.name} searchedName={props.searchedName}/>
                             </div>
                         } else if(!props.searchedName) {
-                            return <TopicBlocks text={i.name} searchedName={props.searchedName}/>
+                            return <div key={ind} className={style.card}>
+                                <TopicBlocks text={i.name} searchedName={props.searchedName}/>
+                            </div>
                         }
                         else return
 

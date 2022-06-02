@@ -67,7 +67,7 @@ const Subject = () => {
         if (categories&&categories.result[0]&&categories.result[0].id) {
            dispatch(setCategoryId(categories?.result[0]?.id))
         }
-    },categories)
+    },[categories])
 
     const isAuth = useSelector(state=>state.auth.isAuth)
 
