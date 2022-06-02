@@ -18,9 +18,9 @@ const SubjectTopic = (props) => {
             <div className={style.blocks}>
 
 
-                { props.category.length>0?
-                    props.category.map((i,ind )=> {
-                        if (props.searchedName && i.name.toLowerCase().includes(props.searchedName.toLowerCase())){
+                { props.category&&props?.category.length>0?
+                    props?.category.map((i,ind )=> {
+                        if (props?.searchedName && i.name.toLowerCase().includes(props?.searchedName.toLowerCase())){
                             return <div key={ind} className={style.card}>
                                 <TopicBlocks text={i.name} searchedName={props.searchedName}/>
                             </div>
@@ -78,7 +78,7 @@ const TopicBlocks = (props) => {
                 padding: "5px",
                 height:"30%"
             }}>
-                <div>{props.text}</div>
+                <div>{props?.text}</div>
                 <Link href={"selectedTopic"}>
                     <div style={{
                         borderRadius: "50px",
