@@ -65,7 +65,7 @@ const Profile = () => {
                                 <div style={{marginRight:"15px",fontSize:"20px"}}>Class of finished theme: {finishData&&finishData?.result[0]?.category?.grade}</div>
                             </div>
                             <div className={style.infoBlock2}>
-                                <div style={{marginRight:"15px",fontSize:"20px"}}>Class of finished theme: {finishData&&finishData?.result[0]?.answered_correct}</div>
+                                <div style={{marginRight:"15px",fontSize:"20px"}}>Grade: {finishData&&finishData?.result[0]?.answered_correct}</div>
                             </div>
                             <div className={style.infoBlock2}>
                                 <div style={{marginRight:"15px",fontSize:"20px"}}>{finishData&&finishData?.result[0]?.passed_lectures} completed so far</div>
