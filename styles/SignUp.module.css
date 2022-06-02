@@ -41,26 +41,22 @@
 }
 
 .btn1{
-    width: 100px;
-    height: 40px;
-    background: #686770;
+
     border: 1px solid #000000;
     display: inline-block;
     cursor: pointer;
+    width: 235px;
+    height: 59px;
+    background: #FAB536;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 27px;
 
 
 
 
 }
 
-.btn2{
-    width: 100px;
-    height: 40px;
-    background: rgba(104, 103, 112, 0.05);
-    border: 1px solid #000000;
-    margin-left: 20px;
-    display: inline-block;
-    cursor: pointer;
-
-
-}

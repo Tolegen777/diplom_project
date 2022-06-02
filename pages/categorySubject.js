@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import style from "./../styles/CategorySubject.module.css";
 import {useRouter} from "next/router";
 import {useGetCoursesQuery} from "../redux/rtk-api/cources/cources";
@@ -14,9 +14,7 @@ const CategorySubject = () => {
 
 
     const {data: courses, isLoading, error} = useGetCoursesQuery()
-    // const courseId = useSelector(state=>state.course.courseId)
-    //
-    // useEffect()
+
 
     const dispatch = useDispatch()
     const router = useRouter()
@@ -75,7 +73,7 @@ const CategorySubject = () => {
                             </select>
                         </div>
                     </div>
-                    <div>
+                    <div style={{display:"flex", justifyContent:"flex-end", alignItems:"flex-end"}}>
                         <button type={"submit"} className={style.btn}>Continue</button>
                     </div>
                 </form>

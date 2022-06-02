@@ -2,30 +2,31 @@ import React from 'react';
 import style from "./../styles/Notes.module.css";
 import Header from "./../components/header";
 import MyButton from "./../components/button";
-import {TextField} from "@mui/material";
 import {useSelector} from "react-redux";
 import {useGetLecturesQuery} from "../redux/rtk-api/lectures/lectures";
-import {useRouter} from "next/router";
-
-
-const subj = ["История","Математика","Англиский","Информатика","География","Биолгоия","Химия","Физика"]
-
-
+import {useGetNotesQuery} from "../redux/rtk-api/notes/notes";
 
 
 const Notes = () => {
 
     const categoryId = useSelector(state=>state.course.categoryId)
 
+    const {data:notes} = useGetNotesQuery(categoryId)
+
+
+
+
     const {data} = useGetLecturesQuery(categoryId)
 
-    const isAuth = useSelector(state=>state.auth.isAuth)
 
-    const router = useRouter()
+    let arr = []
 
-    if (!isAuth){
-        router.push("sign")
+    if (notes&&notes.note){
+  arr.push(notes.note.split("~"))
     }
+
+
+
 
     return (
         <div>
@@ -40,24 +41,23 @@ const Notes = () => {
                     </div>
                 </div>
 
-                {/*<div className={style.select}>*/}
-                {/*    <select name="subjects" id="subjects">*/}
-                {/*        {subj.map(s=><option key={s} value={s} style={{fontSize:"50px"}}>{s}</option>)}*/}
-                {/*    </select>*/}
-                {/*</div>*/}
+
 
             </div>
-            <div className={style.notes}>
+            {arr.length===0?<div className={style.notes}>
                 <div>
-                    <img src="/book.svg" />
+                    <img src="/book.svg"/>
                 </div>
                 <div>
                     Your notes will be visible here. So far you do not have them.
                 </div>
-
-
-
-            </div>
+            </div>:
+                <div style={{marginLeft:"40px"}}>
+<ol>
+    {arr.length>0&&arr[0].map((i,ind)=><li key={ind} style={{fontSize:"20px", marginBottom:"10px"}}>{i}</li>)}
+</ol>
+                </div>
+            }
         </div>
 
     );

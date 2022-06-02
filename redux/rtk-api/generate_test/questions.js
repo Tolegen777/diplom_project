@@ -24,7 +24,8 @@ const endpoints = baseApi.injectEndpoints({
                 method: 'POST',
 
             })
-        })
+        }),
+
     })
 })
 

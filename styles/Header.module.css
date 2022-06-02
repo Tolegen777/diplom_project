@@ -4,7 +4,7 @@
     display: flex;
     width: 100%;
     height: 15vh;
-    background-color: #007ECC;
+    background-color: #2E5984;;
     color:#fff;
 justify-content: space-between;
     align-items: center;
@@ -21,11 +21,11 @@ justify-content: space-between;
 }
 
 .first {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 27px;
-    line-height: 32px;
+    /*font-style: normal;*/
+    /*font-weight: 400;*/
+    /*font-size: 27px;*/
+    /*line-height: 32px;*/
+
 }
 
 .second {

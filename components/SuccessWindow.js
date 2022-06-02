@@ -9,16 +9,10 @@ import style from "./../styles/Alert.module.css"
 
 
 
-const AuthWindow = ({isWindowOpen,closeWindow,submitRemovingEmail}) => {
+const SuccessWindow = ({title,isWindowOpen,closeWindow}) => {
 
     const router = useRouter()
     const dispatch = useDispatch()
-
-    const handleRemoveAuth = () => {
-        dispatch(setHandleNoAuth())
-        router.push("sign")
-
-    }
 
     return(
         <Dialog
@@ -31,22 +25,20 @@ const AuthWindow = ({isWindowOpen,closeWindow,submitRemovingEmail}) => {
             </DialogTitle>
 
             <DialogContent sx={{width: '500px', textAlign: 'center'}}>
-                <Typography sx={{marginBottom: 3, fontWeight: 'bold', fontSize:"20px"}}>If you want to save your progress, please, sign up!</Typography>
+                <Typography sx={{marginBottom: 3, fontWeight: 'bold', fontSize:"20px", color:"success"}}>{title}</Typography>
                 <form>
 
                     <Box sx={{textAlign: 'center', marginBottom: '50px'}}>
 
 
                         <Button variant="contained"
-                                color="primary"
+                                color="inherit"
                                 size="large"
-                                className={style.btn2}
-
-                                onClick={handleRemoveAuth}
+                                className={style.btn3}
+                                onClick={closeWindow}
                         >
-                            Sign up
+                            OK
                         </Button>
-
                     </Box>
                 </form>
 
@@ -58,4 +50,4 @@ const AuthWindow = ({isWindowOpen,closeWindow,submitRemovingEmail}) => {
     )
 }
 
-export default AuthWindow
+export default SuccessWindow

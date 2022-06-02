@@ -77,6 +77,7 @@ const SignUp = () => {
                                    sx={{backgroundColor: "rgba(104, 103, 112, 0.05)"}}
                                    fullWidth
                                    name="password"
+                                   type={"password"}
                                    value={formik.values.password}
                                    onChange={formik.handleChange}
                                    error={formik.touched.password && Boolean(formik.errors.password)}
@@ -108,51 +109,51 @@ const SignUp = () => {
                     }}/>
                 </div>
 
-                <div style={{textAlign: "center", marginBottom:"10px"}}>
-                    <div style={{
-                        width: '60px',
-                        height: '60px',
-                        background: 'rgba(104, 103, 112, 0.05)',
-                        border: '1px solid #000000',
-                        display: "inline-block",
-                        borderRadius: "50px"
-                    }}>
-                    </div>
-                    <div style={{
-                        width: '60px',
-                        height: '60px',
-                        background: 'rgba(104, 103, 112, 0.05)',
-                        border: '1px solid #000000',
-                        display: "inline-block",
-                        borderRadius: "50px",
-                        marginLeft: "20px"
-                    }}>
-                    </div>
-                    <div style={{
-                        width: '60px',
-                        height: '60px',
-                        background: 'rgba(104, 103, 112, 0.05)',
-                        border: '1px solid #000000',
-                        display: "inline-block",
-                        borderRadius: "50px",
-                        marginLeft: "20px"
-                    }}>
-                    </div>
-                    <div style={{
-                        width: '60px',
-                        height: '60px',
-                        background: 'rgba(104, 103, 112, 0.05)',
-                        border: '1px solid #000000',
-                        display: "inline-block",
-                        borderRadius: "50px",
-                        marginLeft: "20px"
-                    }}>
-                    </div>
-                </div>
+                {/*<div style={{textAlign: "center", marginBottom:"10px"}}>*/}
+                {/*    <div style={{*/}
+                {/*        width: '60px',*/}
+                {/*        height: '60px',*/}
+                {/*        background: 'rgba(104, 103, 112, 0.05)',*/}
+                {/*        border: '1px solid #000000',*/}
+                {/*        display: "inline-block",*/}
+                {/*        borderRadius: "50px"*/}
+                {/*    }}>*/}
+                {/*    </div>*/}
+                {/*    <div style={{*/}
+                {/*        width: '60px',*/}
+                {/*        height: '60px',*/}
+                {/*        background: 'rgba(104, 103, 112, 0.05)',*/}
+                {/*        border: '1px solid #000000',*/}
+                {/*        display: "inline-block",*/}
+                {/*        borderRadius: "50px",*/}
+                {/*        marginLeft: "20px"*/}
+                {/*    }}>*/}
+                {/*    </div>*/}
+                {/*    <div style={{*/}
+                {/*        width: '60px',*/}
+                {/*        height: '60px',*/}
+                {/*        background: 'rgba(104, 103, 112, 0.05)',*/}
+                {/*        border: '1px solid #000000',*/}
+                {/*        display: "inline-block",*/}
+                {/*        borderRadius: "50px",*/}
+                {/*        marginLeft: "20px"*/}
+                {/*    }}>*/}
+                {/*    </div>*/}
+                {/*    <div style={{*/}
+                {/*        width: '60px',*/}
+                {/*        height: '60px',*/}
+                {/*        background: 'rgba(104, 103, 112, 0.05)',*/}
+                {/*        border: '1px solid #000000',*/}
+                {/*        display: "inline-block",*/}
+                {/*        borderRadius: "50px",*/}
+                {/*        marginLeft: "20px"*/}
+                {/*    }}>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
                 <div style={{display:"flex", justifyContent:"center", alignItems:"center", marginTop:"10px"}}>
                     <button className={style.btn1} type={"submit"}>Sign in</button>
-                    <button className={style.btn2} onClick={()=>dispatch(setWithoutAuth())}>Enter without registration</button>
+                    {/*<button className={style.btn2} onClick={()=>dispatch(setWithoutAuth())}>Enter without registration</button>*/}
                 </div>
 
             </form>

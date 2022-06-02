@@ -17,24 +17,29 @@ const SignUp = () => {
     const validationSchema = yup.object({
         first_name: yup
             .string('Enter your name')
-            .required('Name is required'),
+           .required('Name is required')
+        ,
         last_name:yup
             .string('Enter your surname')
-            .required('Surname is required'),
+            .required('Surname is required')
+        ,
         middle_name:'',
         email: yup
             .string('Enter your email')
             .email('Enter a valid email')
-            .required('Email is required'),
+            .required('Email is required')
+        ,
         password: yup
             .string('Enter your password')
             .min(8, 'Password should be of minimum 8 characters length')
-            .required('Password is required'),
+            .required('Password is required')
+        ,
         phone: yup
             .string('Enter your phone number')
             .min(10, 'phone number should be 11 characters length')
             .max(12, 'phone number should be 11 characters length')
-            .required('phone number is required'),
+            .required('phone number is required')
+        ,
     });
 
     const formik = useFormik({
@@ -58,7 +63,7 @@ const SignUp = () => {
 
     return (
         <>
-            {isLoading2&&<CircularProgress/>}
+
             {error2&&<div style={{color:"red", textAlign:"center"}}>Произошла ошибка</div>}
 
             <div className={style.secondText}>
@@ -135,6 +140,7 @@ const SignUp = () => {
                                    sx={{backgroundColor: "rgba(104, 103, 112, 0.05)"}}
                                    fullWidth
                                    name="password"
+                                   type={"password"}
                                    value={formik.values.password}
                                    onChange={formik.handleChange}
                                    error={formik.touched.password && Boolean(formik.errors.password)}
@@ -142,6 +148,15 @@ const SignUp = () => {
                         />
                     </div>
 
+
+                </div>
+
+                <div style={{display: "flex",margin:"10px 0px"}}>
+                    <input type="checkbox" style={{width: "10px", }}/>
+                    I agree with privacy policy. Terms of Use and Notifications
+                </div>
+                <div style={{display:"flex", justifyContent:"center", alignItems:"center", marginTop:"10px"}}>
+                    <button className={style.btn1} type={"submit"}>Create an account</button>
 
                 </div>
 
@@ -166,58 +181,58 @@ const SignUp = () => {
                     }}/>
                 </div>
 
-                <div style={{textAlign: "center", marginBottom:"10px"}}>
-                    <div style={{
-                        width: '60px',
-                        height: '60px',
-                        background: 'rgba(104, 103, 112, 0.05)',
-                        border: '1px solid #000000',
-                        display: "inline-block",
-                        borderRadius: "50px"
-                    }}>
-                    </div>
-                    <div style={{
-                        width: '60px',
-                        height: '60px',
-                        background: 'rgba(104, 103, 112, 0.05)',
-                        border: '1px solid #000000',
-                        display: "inline-block",
-                        borderRadius: "50px",
-                        marginLeft: "20px"
-                    }}>
-                    </div>
-                    <div style={{
-                        width: '60px',
-                        height: '60px',
-                        background: 'rgba(104, 103, 112, 0.05)',
-                        border: '1px solid #000000',
-                        display: "inline-block",
-                        borderRadius: "50px",
-                        marginLeft: "20px"
-                    }}>
-                    </div>
-                    <div style={{
-                        width: '60px',
-                        height: '60px',
-                        background: 'rgba(104, 103, 112, 0.05)',
-                        border: '1px solid #000000',
-                        display: "inline-block",
-                        borderRadius: "50px",
-                        marginLeft: "20px"
-                    }}>
-                    </div>
-                </div>
+                {/*<div style={{textAlign: "center", marginBottom:"10px"}}>*/}
+                {/*    <div style={{*/}
+                {/*        width: '60px',*/}
+                {/*        height: '60px',*/}
+                {/*        background: 'rgba(104, 103, 112, 0.05)',*/}
+                {/*        border: '1px solid #000000',*/}
+                {/*        display: "inline-block",*/}
+                {/*        borderRadius: "50px"*/}
+                {/*    }}>*/}
+                {/*    </div>*/}
+                {/*    <div style={{*/}
+                {/*        width: '60px',*/}
+                {/*        height: '60px',*/}
+                {/*        background: 'rgba(104, 103, 112, 0.05)',*/}
+                {/*        border: '1px solid #000000',*/}
+                {/*        display: "inline-block",*/}
+                {/*        borderRadius: "50px",*/}
+                {/*        marginLeft: "20px"*/}
+                {/*    }}>*/}
+                {/*    </div>*/}
+                {/*    <div style={{*/}
+                {/*        width: '60px',*/}
+                {/*        height: '60px',*/}
+                {/*        background: 'rgba(104, 103, 112, 0.05)',*/}
+                {/*        border: '1px solid #000000',*/}
+                {/*        display: "inline-block",*/}
+                {/*        borderRadius: "50px",*/}
+                {/*        marginLeft: "20px"*/}
+                {/*    }}>*/}
+                {/*    </div>*/}
+                {/*    <div style={{*/}
+                {/*        width: '60px',*/}
+                {/*        height: '60px',*/}
+                {/*        background: 'rgba(104, 103, 112, 0.05)',*/}
+                {/*        border: '1px solid #000000',*/}
+                {/*        display: "inline-block",*/}
+                {/*        borderRadius: "50px",*/}
+                {/*        marginLeft: "20px"*/}
+                {/*    }}>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
-                <div style={{display: "flex"}}>
-                    <input type="checkbox" style={{width: "50px"}}/>
-                    I agree with privacy policy. Terms of Use and Notifications
-                </div>
+                {/*<div style={{display: "flex"}}>*/}
+                {/*    <input type="checkbox" style={{width: "50px"}}/>*/}
+                {/*    I agree with privacy policy. Terms of Use and Notifications*/}
+                {/*</div>*/}
 
 
-                <div style={{display:"flex", justifyContent:"center", alignItems:"center", marginTop:"10px"}}>
-                    <button className={style.btn1} type={"submit"}>Create an account</button>
-                    <button className={style.btn2} onClick={()=>dispatch(setWithoutAuth())}>Enter without registration</button>
-                </div>
+                {/*<div style={{display:"flex", justifyContent:"center", alignItems:"center", marginTop:"10px"}}>*/}
+                {/*    <button className={style.btn1} type={"submit"}>Create an account</button>*/}
+
+                {/*</div>*/}
 
             </form>
         </>

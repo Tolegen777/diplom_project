@@ -1,16 +1,21 @@
 
 import Sign from "./sign";
 import {useSelector} from "react-redux";
-import CategorySubject from "./categorySubject";
+
+import {useRouter} from "next/router";
 
 export default function Home() {
     const {isAuth} = useSelector(state=>state.auth)
     const {goWithoutAuth} = useSelector(state=>state.auth)
+    const router = useRouter()
+    if (isAuth||goWithoutAuth){
+        router.push("categorySubject")
+    }
 
 
   return (
     <div>
-        {isAuth?<CategorySubject/>:<Sign/>}
+        <Sign/>
     </div>
   )
 }

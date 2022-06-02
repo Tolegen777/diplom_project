@@ -3,8 +3,12 @@
     font-weight: 400;
     font-size: 25px;
     line-height: 29px;
-    width: 180px;
+    width: 117px;
     height: 55px;
-    border-radius: 20px;
-    border: 1px solid #000000;
+    background: #FFFFFF;
+
+
+
+    border: 2px solid #2E5984;
+    border-radius: 25px;
 }

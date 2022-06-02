@@ -41,6 +41,7 @@
     font-size: 23px;
     line-height: 27px;
     color: #000000;
+    margin-bottom: 10px;
 }
 
 .block2 {
@@ -52,4 +53,9 @@
 
 .infoBlock2 {
    margin:0 auto 30px 40px;
+}
+
+.input {
+    background: #C4C4C4;
+    width: 400px;
 }

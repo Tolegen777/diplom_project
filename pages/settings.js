@@ -18,16 +18,6 @@ import {useRouter} from "next/router";
 
 const Settings = () => {
 
-    const isAuth = useSelector(state=>state.auth.isAuth)
-
-    const router = useRouter()
-
-    if (!isAuth){
-        router.push("sign")
-    }
-
-
-    // const [flag, setFlag] = useState(false)
     const [sendUpdateData,{isLoading,isError,isSuccess}] = useUpdateProfileMutation()
     const [isAlertOpen, setAlertOpen] = useState(false)
 
@@ -50,30 +40,6 @@ const Settings = () => {
 
     const dispatch = useDispatch()
     const data = useSelector(state=>state.auth)
-    // console.log(useUpdateProfileMutation())
-    console.log(data)
-    console.log("data")
-
-
-    const handleAddImage2 = (event) => {
-        const input = event.target;
-        if (!input.files?.length) {
-            return;
-        }
-        const file = input.files[0];
-        let images = [];
-        images.push(file);
-        formik.setFieldValue('avatar', images);
-        // setFlag(true)
-
-
-    }
-
-    const handleImageDelete = (id) => {
-        let images = [...formik.values.avatar].filter((img, ind) => ind !== id);
-        formik.setFieldValue('avatar', images);
-        // setFlag(false)
-    }
 
     const validationSchema = yup.object({
         email: yup
@@ -106,9 +72,7 @@ const Settings = () => {
         validationSchema:validationSchema,
         onSubmit: (values) => {
             const formData = new FormData()
-            // for (let pair of formData.entries()) {
-            //     console.log(pair[0]+ ', ' + pair[1]);
-            // }
+
 
 
             if (values.first_name !== null) {
@@ -132,17 +96,8 @@ const Settings = () => {
             if (values.password !== null) {
                 formData.append('password', values.password);
             }
-            //need this!
-            // if (values.avatar !== null) {
-            //     formData.append('avatar', values.avatar[0]);
-            // }
 
-
-
-
-
-
-               sendUpdateData(formData).then(
+            sendUpdateData(formData).then(
                    res=>{dispatch(setUpdateProfileData(res.data.result.user))}
                )
 
@@ -154,7 +109,7 @@ const Settings = () => {
 
 
     return (
-        <div>
+        <div className={style.parent}>
             <Header/>
             <div className={style.main}>
 
@@ -171,27 +126,10 @@ const Settings = () => {
                 </div>
 
 
-                    <div style={{border: "1px solid #000000", padding: "10px"}}>
+                    <div style={{border: "3px solid #2E5984", padding: "10px"}}>
                         <div>
                             <form onSubmit={formik.handleSubmit}>
-                                {/*<div style={{display:"inline-block", marginBottom:"20px"}}>*/}
-                                {/*    <ImageInput title="Добавить фотографию" handleChange={handleAddImage2} height="100px"*/}
-                                {/*                width="100px"/>*/}
-                                {/*</div>*/}
 
-                        {/*        {formik.values.avatar&&formik.values.avatar.length>0&&formik.values.avatar.map((image, ind) => {*/}
-                        {/*            return (*/}
-                        {/*                <span key={ind}>*/}
-                        {/*    <ImageContainer*/}
-                        {/*        image={URL.createObjectURL(image)}*/}
-                        {/*        handleChange={(event) => {}}*/}
-                        {/*        handleDelete={() => handleImageDelete(ind)}*/}
-                        {/*    />*/}
-                        {/*</span>*/}
-
-
-                        {/*            )*/}
-                        {/*        })}*/}
                                 <div>
                                     <h4 className={style.title}>Name</h4>
                                     <TextField
@@ -217,19 +155,7 @@ const Settings = () => {
                                 /></div>
 
                                 <div>
-                                    <h4 className={style.title}>Middle Name</h4>
-                                    <TextField
-                                    id="middle_name"
-                                    name="middle_name"
-                                    className={style.input}
-                                    size="small"
-                                    value={formik.values.middle_name}
-                                    onChange={formik.handleChange}
-
-                                /></div>
-
-                                <div>
-                                    <h4 className={style.title}>Email Name</h4>
+                                    <h4 className={style.title}>Email</h4>
                                     <TextField
                                     id="email"
                                     name="email"
@@ -254,19 +180,6 @@ const Settings = () => {
                                 /></div>
 
                                 <div>
-                                    <h4 className={style.title}>Password</h4>
-                                    <TextField
-                                    id="password"
-                                    name="password"
-                                    type="password"
-                                    className={style.input}
-                                    size="small"
-                                    value={formik.values.password}
-                                    onChange={formik.handleChange}
-
-                                /></div>
-
-                                <div>
                                     <h4 className={style.title}>Region</h4>
                                     <TextField
                                         id="region"
@@ -279,7 +192,13 @@ const Settings = () => {
                                     />
                                 </div>
                                 <div style={{display:"flex", justifyContent:"flex-end"}}>
-                                    <Button color="primary" variant="contained" type="submit">
+                                    <Button variant="contained" type="submit" sx={{
+                                        width: "141px",
+                                        height: "41px",
+                                        background: "#FAB536",
+                                        borderRadius: "10px",
+                                        color:"black"
+                                    }}>
                                         Save
                                     </Button>
                                 </div>

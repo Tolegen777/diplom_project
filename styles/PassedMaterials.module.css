@@ -8,6 +8,7 @@
 
 .main {
     padding: 30px 40px 0 40px;
+
 }
 
 .text2 {
@@ -15,8 +16,30 @@
     font-weight: 400;
     font-size: 25px;
     line-height: 29px;
+    width: 311px;
+    height: 56px;
+    background: #FAB536;
+    border: 1px solid #000000;
+    border-radius: 25px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .blockTexts {
     padding-bottom: 10px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26px;
+    margin-top: 10px;
+}
+
+.text3 {
+    padding-bottom: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
 }

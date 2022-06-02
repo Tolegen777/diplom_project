@@ -5,49 +5,31 @@ import {useJoinToCourseMutation} from "../redux/rtk-api/joinToCourse/joinToCours
 import {useSelector} from "react-redux";
 import {useRouter} from "next/router";
 
-const arr = [
-    {
-        id: 1,
-        text: "Шелковый Путь"
-    },
-    {
-        id: 2,
-        text: ""
-    },
-    {
-        id: 3,
-        text: ""
-    },
-    {
-        id: 4,
-        text: ""
-    },
-    {
-        id: 5,
-        text: ""
-    },
-]
+
 
 
 const SubjectTopic = (props) => {
 
-    const isAuth = useSelector(state=>state.auth.isAuth)
-
-    const router = useRouter()
-
-    if (!isAuth){
-        router.push("sign")
-    }
 
 
     return (
         <div className={style.main}>
-            <div>Continue...</div>
+            <div className={style.text}>Continue...</div>
             <div className={style.blocks}>
+
+
                 { props.category.length>0?
-                    props.category.map(i => <div key={i.id}>
-                        <TopicBlocks text={i.name}/>
-                    </div>):<div>There are no categories in this course!</div>
+                    props.category.map(i => {
+                        if (props.searchedName && i.name.toLowerCase().includes(props.searchedName.toLowerCase())){
+                            return <div key={i.id} className={style.card}>
+                                <TopicBlocks text={i.name} searchedName={props.searchedName}/>
+                            </div>
+                        } else if(!props.searchedName) {
+                            return <TopicBlocks text={i.name} searchedName={props.searchedName}/>
+                        }
+                        else return
+
+                    }):<div>There are no categories in this course!</div>
                 }
             </div>
 
@@ -72,20 +54,27 @@ const TopicBlocks = (props) => {
     }
 
     return (
+
+
+
         <div style={{
             width: '400px',
             height: '175px',
             border: '1px solid #000000',
             display: "flex",
-            alignItems: "flex-end"
+            flexDirection:"column"
+
         }}>
+<div style={{height:"70%"}}><img src="./know.jpeg" alt="" style={{width:"100%", height:"100%"}}/></div>
+
             <div style={{
                 borderTop: "2px solid #000000",
                 width: "100%",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                padding: "5px"
+                padding: "5px",
+                height:"30%"
             }}>
                 <div>{props.text}</div>
                 <Link href={"selectedTopic"}>
@@ -95,8 +84,9 @@ const TopicBlocks = (props) => {
                         padding: "3px",
                         display: "flex",
                         alignItems: "center",
-                        cursor:"pointer"
-                    }} onClick={handleJoin}><img src="/next.svg" /></div>
+                        cursor:"pointer",
+                        backgroundColor:"#FAB536"
+                    }} onClick={handleJoin}><img src="/nextBlock.svg" /></div>
                 </Link>
 
             </div>

@@ -5,6 +5,9 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-image: url('/background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
 
 
 
@@ -42,6 +45,12 @@
     font-weight: 400;
     font-size: 25px;
     line-height: 29px;
+
+ padding: 10px;
+
+    background: #FFFFFF;
+    border: 3px solid #2E5984;
+    border-radius: 25px;
 }
 
 .answerBlock {
@@ -58,21 +67,22 @@
 .answers {
     width: 285px;
     height: 56px;
-    background: #C4C4C4;
+    background: #FFFFFF;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 50px;
-    border: 1px solid #000000;
     cursor: pointer;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
 }
 
 .submitButton {
 
-    width: 150px;
+    width: 169px;
     height: 56px;
-    background: #C4C4C4;
+
+
+    background: #FAB536;
     border-radius: 10px;
     font-style: normal;
     font-weight: 400;
@@ -80,4 +90,14 @@
     line-height: 27px;
     cursor: pointer;
 
+}
+
+.task{
+    width: 357px;
+    min-height: 134px;
+   padding: 10px;
+
+    background: #FFFFFF;
+    border: 3px solid #2E5984;
+    border-radius: 25px;
 }

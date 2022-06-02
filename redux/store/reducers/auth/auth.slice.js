@@ -26,6 +26,9 @@ const authReducer = createSlice({
         setHandleAuth: (state) => {
             state.isAuth = true
         },
+        setHandleNoAuth: (state) => {
+            state.goWithoutAuth = false
+        },
         setUpdateProfileData: (state, {payload}) => {
 
            if (payload.avatar){
@@ -73,12 +76,19 @@ const authReducer = createSlice({
             })
             .addCase(login.fulfilled, (state, { payload }) => {
 
-                console.log(payload)
+                // console.log(payload)
                 state.isLoading = true
                 state.email = payload.result.user.email
                 state.first_name = payload.result.user.first_name
                 state.last_name = payload.result.user.last_name
                 state.middle_name = payload.result.user.middle_name
+                if (payload.result.user.phone){
+                    state.phone = payload.result.user.phone
+                }
+                if (payload.result.user.password){
+                    state.password = payload.result.user.password
+                }
+
                 // state.status = ActionsEnum.SUCCESS;
                 state.isAuth = true;
                 state.isLoading = false;
@@ -124,6 +134,6 @@ const authReducer = createSlice({
     },
 });
 
-export const {setHandleAuth, setUpdateProfileData,setWithoutAuth} = authReducer.actions
+export const {setHandleAuth, setUpdateProfileData,setWithoutAuth,setHandleNoAuth} = authReducer.actions
 
 export default authReducer.reducer;

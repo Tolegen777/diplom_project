@@ -1,5 +1,10 @@
+.parent {
+ max-height: 100vh;
+}
+
 .main {
-    padding: 20px;
+    padding: 0px 60px 0px 60px;
+    margin-top: 30px;
 }
 
 .headText {

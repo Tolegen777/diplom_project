@@ -6,6 +6,7 @@ import {useGetFinishedCoursesQuery} from "../redux/rtk-api/finishedCourses/finis
 import {useGenerateMutation} from "../redux/rtk-api/generate_test/questions";
 import {useRouter} from "next/router";
 import {useSelector} from "react-redux";
+import Button from "@mui/material/Button";
 
 
 const row = [
@@ -38,19 +39,16 @@ const row = [
 
 const PassedMaterials = () => {
 
-    const isAuth = useSelector(state=>state.auth.isAuth)
 
     const router = useRouter()
 
-    if (!isAuth){
-        router.push("sign")
-    }
+
 
 
     const {data,isLoading,isError} = useGetFinishedCoursesQuery()
 
     const [generate,{}] = useGenerateMutation()
-    console.log(data)
+
 
 
 
@@ -71,22 +69,23 @@ const PassedMaterials = () => {
                         <div className={style.headText}>My completed materials</div>
                     </div>
                     <div className={style.text2} onClick={handleGenerate}>
-                        Generate test {">"}
+                        Generate the multi-test {">"}
                     </div>
+
 
                 </div>
 
                 <div>
-                    {/*{row.map(i=>*/}
-                    {/*    <div key={i.id} style={{marginBottom:"10px"}}>*/}
-                    {/*        <Block key = {i.id} task={i.task} grade={i.grade} topic={i.topic} classNum={i.classNum}/>*/}
-                    {/*    </div>*/}
-                    {/*   )}*/}
-                    {data&&data?.result.map((i,ind)=>{
+
+                    {data&&data?.result.length>0?data?.result.map((i,ind)=>{
                         return <div key={i.category.id} style={{marginBottom:"10px"}}>
                             <Block key = {i.category.id} grade={i.category.grade} topic={i.category.name} answered_correct={data.result[0].answered_correct}/>
                         </div>
-                    })}
+                    }):<div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
+                        <div className={style.blockTexts}>You have not taken a course yet!</div>
+
+                    </div>
+                    }
                 </div>
 
             </div>
@@ -100,12 +99,14 @@ export default PassedMaterials;
 
 const Block = ({classNum, topic, task, grade,answered_correct}) => {
     return (
-        <div style={{display:"flex", alignItems:"center", justifyContent:"flex-start", width:"100%", backgroundColor:"#C4C4C4", }}>
-            <div style={{display:"flex", alignItems:"center", justifyContent:"center", width:"10%", }}>{grade} class</div>
-            <div style={{padding:"10px", display:"grid", width:"90%", borderLeft:"1px solid #000000"}}>
+        <div style={{display:"flex", alignItems:"center", justifyContent:"flex-start", width:"100%", backgroundColor:"#FFFFFF",
+            border: "3px solid #2E5984", height:"200px"
+        }}>
+            <div style={{display:"flex", alignItems:"center", justifyContent:"center", width:"10%", height:"100%"}} className={style.text3}>{grade}th grade</div>
+            <div style={{padding:"10px", display:"grid", width:"90%", borderLeft:"3px solid #2E5984", height:"100% "}}>
                 <div className={style.blockTexts}>{topic}</div>
-                <div className={style.blockTexts}>All task are completed</div>
-                <div>Grade {answered_correct}</div>
+                <div className={style.text3}>All task are completed</div>
+                <div className={style.text3}>Grade {answered_correct}</div>
             </div>
         </div>
     )

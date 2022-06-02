@@ -10,8 +10,14 @@ import {AlertTitle} from "@mui/material";
 
 //    status: 'success' | 'info' | 'warning' | 'error',
 
-const style = {
+const successS = {
  width:"500px",
+    height:"250px",
+    fontSize:"20px"
+}
+
+const errorS = {
+    width:"500px",
     height:"250px",
     fontSize:"20px"
 }
@@ -20,17 +26,13 @@ const btnStyle = {
 
 }
 
-const CustomAlert = ({message, status,handleClean}) => {
-
-
+const CustomAlert = ({message, status}) => {
 
     return (
-        <Alert severity={status} sx={handleClean&&style}>
+        <Alert severity={status}>
             {/*<AlertTitle>{title}</AlertTitle>*/}
             <strong>{message}</strong>
-            {handleClean&&<Box>
-                {status==="success"?<Button onClick={()=>handleClean('')} variant={"contained"} color={"success"}>Next</Button>:<Button onClick={()=>handleClean('')}>Back</Button>}
-            </Box>}
+
         </Alert>
     );
 };

@@ -5,25 +5,13 @@ import MyButton from "./../components/button";
 import {TextField} from "@mui/material";
 import {useGetProfileQuery} from "../redux/rtk-api/profile/profile";
 import {useGetFinishedCoursesQuery} from "../redux/rtk-api/finishedCourses/finishedCourses";
-import {useSelector} from "react-redux";
-import {useRouter} from "next/router";
-
-
 
 
 const Profile = () => {
 
     const {data} = useGetProfileQuery()
-    // console.log(data)
     const {data:finishData,isLoading,isError} = useGetFinishedCoursesQuery()
 
-    const isAuth = useSelector(state=>state.auth.isAuth)
-
-    const router = useRouter()
-
-    if (!isAuth){
-        router.push("sign")
-    }
 
     return (
         <div>
@@ -41,19 +29,19 @@ const Profile = () => {
                         <div>
                             <div className={style.infoBlock}>
                                 <div style={{marginRight:"5px", width:"150px"}}>Full name</div>
-                                <TextField value={data?`${data?.result?.user?.first_name} ${data?.result?.user?.last_name} ${data?.result?.user?.middle_name}`:""}></TextField>
+                                <TextField value={data?`${data?.result?.user?.first_name} ${data?.result?.user?.last_name} ${data?.result?.user?.middle_name}`:""} className={style.input}></TextField>
                             </div>
                             <div className={style.infoBlock}>
                                 <div style={{marginRight:"5px", width:"150px"}}>Phone number</div>
-                                <TextField value={data?data?.result?.user?.phone:""}></TextField>
+                                <TextField value={data?data?.result?.user?.phone:""} className={style.input}></TextField>
                             </div>
                             <div className={style.infoBlock}>
                                 <div style={{marginRight:"5px", width:"150px"}}>Mail</div>
-                                <TextField value = {data?data?.result?.user?.email:""}></TextField>
+                                <TextField value = {data?data?.result?.user?.email:""} className={style.input}></TextField>
                             </div>
                             <div className={style.infoBlock}>
                                 <div style={{marginRight:"5px", width:"150px"}}>Region</div>
-                                <TextField value = {data?data?.result?.user?.region:""}></TextField>
+                                <TextField value = {data?data?.result?.user?.region:""} className={style.input}></TextField>
                             </div>
 
                         </div>
@@ -68,19 +56,19 @@ const Profile = () => {
                         <div className={style.block2}><img src="/atom.svg" /></div>
                         <div>
                             <div className={style.infoBlock2}>
-                                <div style={{marginRight:"15px"}}>Name of course: {finishData&&finishData.result[0].category.course.name}</div>
+                                <div style={{marginRight:"15px",fontSize:"20px"}}>Name of course: {finishData&&finishData?.result[0]?.category?.course?.name}</div>
                             </div>
                             <div className={style.infoBlock2}>
-                                <div style={{marginRight:"15px"}}>Finished theme: {finishData&&finishData.result[0].category.name}</div>
+                                <div style={{marginRight:"15px",fontSize:"20px"}}>Finished theme: {finishData&&finishData?.result[0]?.category?.name}</div>
                             </div>
                             <div className={style.infoBlock2}>
-                                <div style={{marginRight:"15px"}}>Class of finished theme: {finishData&&finishData.result[0].category.grade}</div>
+                                <div style={{marginRight:"15px",fontSize:"20px"}}>Class of finished theme: {finishData&&finishData?.result[0]?.category?.grade}</div>
                             </div>
                             <div className={style.infoBlock2}>
-                                <div style={{marginRight:"15px"}}>Class of finished theme: {finishData&&finishData.result[0].answered_correct}</div>
+                                <div style={{marginRight:"15px",fontSize:"20px"}}>Class of finished theme: {finishData&&finishData?.result[0]?.answered_correct}</div>
                             </div>
                             <div className={style.infoBlock2}>
-                                <div style={{marginRight:"15px"}}>{finishData&&finishData.result[0].passed_lectures} completed so far</div>
+                                <div style={{marginRight:"15px",fontSize:"20px"}}>{finishData&&finishData?.result[0]?.passed_lectures} completed so far</div>
                             </div>
 
                         </div>
